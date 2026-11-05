@@ -10,8 +10,8 @@ def _patched_iter_entry_points(group):
 pymorphy3.analyzer._iter_entry_points = _patched_iter_entry_points
 
 import spacy
-from metrics.base_metrics import count_syllables, avg_sentence_length, avg_word_syllables, long_word_ratio, flesch_kincaid_grade, flesch_reading_ease, oborneva_index, smog_grade, type_token_ratio, yules_k
-from metrics.metrics import rare_word_ratio, subordination_ratio, passive_participle_ratio, noun_verb_ratio, noun_chain_ratio, med_term_density, num_unit_density, genitive_chain_ratio
+from metrics.primary_metrics.base_metrics import count_syllables, avg_sentence_length, avg_word_syllables, long_word_ratio, flesch_kincaid_grade, flesch_reading_ease, oborneva_index, smog_grade, type_token_ratio, yules_k
+from metrics.primary_metrics.spacy_metrics import rare_word_ratio, subordination_ratio, passive_participle_ratio, noun_verb_ratio, noun_chain_ratio, med_term_density, num_unit_density, genitive_chain_ratio
 
 RU_TEXT = "Пациент поступил с жалобами на выраженную одышку и боли в грудной клетке. При аускультации выявлено ослабление дыхания в нижних отделах лёгких. На рентгенограмме определяется инфильтрация лёгочной ткани в проекции нижней доли правого лёгкого. Назначена антибактериальная терапия препаратами широкого спектра действия."
 EN_TEXT = "The patient was admitted with complaints of severe dyspnea and chest pain. Auscultation revealed diminished breath sounds in the lower lung fields. Chest radiograph demonstrated infiltration of pulmonary tissue in the right lower lobe. Broad-spectrum antibiotic therapy was initiated."
