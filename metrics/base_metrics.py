@@ -41,6 +41,14 @@ def flesch_kincaid_grade(asl: float, asw: float, lang: str) -> float:
     return 0.39 * asl + 11.8 * asw - 15.59
 
 
+def flesch_reading_ease(asl: float, asw: float) -> float:
+    return 206.835 - 1.015 * asl - 84.6 * asw
+
+
+def oborneva_index(asl: float, asw: float) -> float:
+    return 206.835 - 1.52 * asl - 65.14 * asw
+
+
 def smog_grade(n_long: int, n_sents: int, lang: str) -> float:
     if n_sents == 0:
         return 0.0

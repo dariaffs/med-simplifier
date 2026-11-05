@@ -10,7 +10,7 @@ def _patched_iter_entry_points(group):
 pymorphy3.analyzer._iter_entry_points = _patched_iter_entry_points
 
 import spacy
-from metrics.base_metrics import count_syllables, avg_sentence_length, avg_word_syllables, long_word_ratio, flesch_kincaid_grade, smog_grade, type_token_ratio, yules_k
+from metrics.base_metrics import count_syllables, avg_sentence_length, avg_word_syllables, long_word_ratio, flesch_kincaid_grade, flesch_reading_ease, oborneva_index, smog_grade, type_token_ratio, yules_k
 from metrics.metrics import rare_word_ratio, subordination_ratio, passive_participle_ratio, noun_verb_ratio, noun_chain_ratio, med_term_density, num_unit_density, genitive_chain_ratio
 
 RU_TEXT = "Пациент поступил с жалобами на выраженную одышку и боли в грудной клетке. При аускультации выявлено ослабление дыхания в нижних отделах лёгких. На рентгенограмме определяется инфильтрация лёгочной ткани в проекции нижней доли правого лёгкого. Назначена антибактериальная терапия препаратами широкого спектра действия."
@@ -34,6 +34,10 @@ def run(text, lang):
     print(f"\n[{lang.upper()}]")
     print(f"ASL: {asl:.2f}")
     print(f"FKGL: {flesch_kincaid_grade(asl, asw, lang):.2f}")
+    if lang == "en":
+        print(f"Flesch Reading Ease: {flesch_reading_ease(asl, asw):.2f}")
+    if lang == "ru":
+        print(f"Индекс Оборневой: {oborneva_index(asl, asw):.2f}")
     print(f"SMOG: {smog_grade(n_long, n_sents, lang):.2f}")
     print(f"Длинных слов: {long_word_ratio(syl_counts, lang):.3f}")
     print(f"TTR: {type_token_ratio(lemmas):.3f}")
