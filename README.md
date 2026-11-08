@@ -1,6 +1,6 @@
 # med-simplifier
 
-Multilingual (eng + eng) agent for medical texts simplification with controllable complexity parameters 
+Multilingual (eng + ru) agent for medical texts simplification with controllable complexity parameters 
 
 ---
 
